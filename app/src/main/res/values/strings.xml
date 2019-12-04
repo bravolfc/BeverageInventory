@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Beverage Inventory</string>
+    <string name="loading">Loading...</string>
+    <string name="product_type">Select Product Type</string>
+    <string name="volume_unit">Unit</string>
+
+    <string name="camera_permission_description">This application requires camera to scan code</string>
+    <string name="barcode_detected">Barcode Detected</string>
+    <string name="barcode_detected_message">Do you want to lookup barcode with previous added item?</string>
+    <string name="sure">sure</string>
+    <string name="no">No</string>
+
+    <string name="add_item">Add Item</string>
+    <string name="update_item">Update Item</string>
+    <string name="dashboard">Dashboard</string>
+
+
+
+</resources>

@@ -1,0 +1,117 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'kotlin-kapt'
+
+ext.versionMajor = 1
+ext.versionMinor = 0
+ext.versionPatch = 0
+ext.minimumSdkVersion = 19
+ext.compileSdkVersion = 29
+ext.targetSdkVersion = 29
+
+android {
+    compileSdkVersion project.ext.compileSdkVersion
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.ishwal.beverageinventory"
+        minSdkVersion project.ext.minimumSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
+        versionCode generateVersionCode()
+        versionName generateVersionName()
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            versionNameSuffix = '-debug'
+        }
+        staging {
+            initWith debug
+            versionNameSuffix = '-staging'
+
+            matchingFallbacks = ['debug']
+        }
+    }
+
+    dataBinding {
+        enabled true
+    }
+}
+
+private Integer generateVersionCode() {
+    return ext.minimumSdkVersion * 10000000 + ext.versionMajor * 10000 + ext.versionMinor * 100 + ext.versionPatch
+}
+
+private String generateVersionName() {
+    return "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}"
+}
+
+androidExtensions {
+    experimental = true
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //Some General Dependencies
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    // FirebaseUI for Firebase Realtime Database
+    implementation "com.google.firebase:firebase-auth:$rootProject.firebaseVersion"
+    implementation "com.google.firebase:firebase-database:$rootProject.firebaseVersion"
+
+
+    // Architecture Components
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.lifecycleVersion"
+    testImplementation "androidx.arch.core:core-testing:$rootProject.archTestingVersion"
+
+
+    //Koin Dependency Injection
+    implementation "org.koin:koin-android:$rootProject.koinVersion"
+    implementation "org.koin:koin-androidx-viewmodel:$rootProject.koinVersion"
+    implementation "org.koin:koin-androidx-scope:$rootProject.koinVersion"
+
+    //Logging
+    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
+
+
+    implementation "com.github.PhilJay:MPAndroidChart:$rootProject.chartVersion"
+
+
+    //Parceler
+    implementation "org.parceler:parceler-api:$rootProject.parcelerVersion"
+    kapt "org.parceler:parceler:$rootProject.parcelerVersion"
+
+    //Image Loading Library
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    kapt 'com.github.bumptech.glide:compiler:4.10.0'
+
+
+    //Dialog
+    implementation "com.afollestad.material-dialogs:core:$rootProject.materialDialogVersion"
+    implementation "com.afollestad.material-dialogs:datetime:$rootProject.materialDialogVersion"
+
+    //Joda Time
+    implementation 'net.danlew:android.joda:2.10.3'
+
+    implementation 'me.dm7.barcodescanner:zxing:1.9.8'
+
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
+}

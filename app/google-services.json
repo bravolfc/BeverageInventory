@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "174177266883",
+    "firebase_url": "https://beverage-inventory.firebaseio.com",
+    "project_id": "beverage-inventory",
+    "storage_bucket": "beverage-inventory.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174177266883:android:a6061ca8ddf882ad514676",
+        "android_client_info": {
+          "package_name": "com.ishwal.beverageinventory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174177266883-ld4p0o3qtg59mn4acniaqgbi2ptlk1v9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ishwal.beverageinventory",
+            "certificate_hash": "79829dfa3d96bcd5d34382cafc2d8dff7f885881"
+          }
+        },
+        {
+          "client_id": "174177266883-00m49s12utolou8ukifas1hde360p5dd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLFrVvFDAz0am1IlLX767zhkcBVlzDV_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174177266883-00m49s12utolou8ukifas1hde360p5dd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

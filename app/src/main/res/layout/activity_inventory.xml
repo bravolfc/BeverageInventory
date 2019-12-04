@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="inventoryViewModel"
+            type="com.ishwal.beverageinventory.ui.inventory.InventoryViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.inventory.InventoryActivity">
+
+
+        <FrameLayout
+            android:id="@+id/itemListText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:background="@color/white"
+                android:paddingStart="16dp"
+                android:paddingTop="20dp"
+                android:layout_gravity="center_vertical"
+                android:paddingEnd="16dp"
+                android:paddingBottom="20dp"
+                android:text="Item List"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_selective"
+            app:layout_constraintBottom_toTopOf="@+id/searchViewTextInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+           />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/searchViewTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginStart="20dp"
+            app:endIconMode="clear_text"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            app:boxStrokeWidth="0dp"
+            app:startIconDrawable="@drawable/ic_search_black"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/itemListText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchViewEditText"
+                android:hint="Search Item"
+                android:gravity="center_vertical"
+                android:layout_gravity="center"
+                android:background="@drawable/search_round"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/inventoryRV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:spanCount="2"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchViewTextInputLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
